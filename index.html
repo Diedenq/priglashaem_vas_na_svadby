@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Темірлан & Дамина · 24.04.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Raleway:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --cream:      #faf6f0;
+  --beige:      #f0e8da;
+  --warm:       #e8dccb;
+  --gold:       #c9a96e;
+  --gold-light: #e8d5a3;
+  --gold-dark:  #a07840;
+  --rust:       #b5622a;
+  --teal:       #4a7c74;
+  --text:       #3d2e1e;
+  --text-light: #7a6a58;
+}
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  background: var(--cream);
+  color: var(--text);
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ════════════════════════════
+   HERO
+════════════════════════════ */
+.hero {
+  min-height: 100svh;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+  padding: calc(52px + env(safe-area-inset-top,0px)) 24px calc(52px + env(safe-area-inset-bottom,0px));
+  position: relative;
+  background: var(--cream);
+  overflow: hidden;
+}
+
+/* тонкая рамка по краям экрана */
+.hero::before {
+  content: '';
+  position: absolute; inset: 12px;
+  border: 1px solid var(--gold);
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+.hero-ornament-top,
+.hero-ornament-bottom {
+  position: absolute; left: 50%; transform: translateX(-50%);
+  pointer-events: none;
+}
+.hero-ornament-top    { top: 20px; }
+.hero-ornament-bottom { bottom: 20px; }
+
+.hero > *:not(.hero-ornament-top):not(.hero-ornament-bottom) {
+  position: relative; z-index: 1;
+}
+
+.hero-tag {
+  font-size: 9px; letter-spacing: 4px;
+  text-transform: uppercase; color: var(--gold);
+  margin-bottom: 24px; line-height: 1.7;
+  animation: fadeUp 1s ease both;
+}
+
+/* Центральный орнаментальный медальон */
+.hero-medallion {
+  width: min(260px, 68vw);
+  margin: 0 auto 28px;
+  animation: fadeUp 1s 0.15s ease both;
+}
+
+.hero-names {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(38px, 11vw, 86px);
+  font-weight: 300; line-height: 1;
+  color: var(--text);
+  animation: fadeUp 1s 0.3s ease both;
+}
+.hero-names .amp {
+  font-style: italic; color: var(--gold);
+  font-size: 0.6em; display: inline-block; margin: 0 6px;
+}
+.hero-date {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(14px, 4vw, 19px);
+  font-style: italic; color: var(--gold-dark);
+  margin-top: 16px; letter-spacing: 2px;
+  animation: fadeUp 1s 0.45s ease both;
+}
+.hero-divider {
+  display: flex; align-items: center; gap: 10px;
+  margin: 22px auto; width: min(200px, 60vw);
+  animation: fadeUp 1s 0.5s ease both;
+}
+.hero-divider-line { flex:1; height:1px; background: var(--gold); opacity: 0.4; }
+.hero-divider-diamond {
+  width: 7px; height: 7px;
+  background: var(--gold); opacity: 0.6;
+  transform: rotate(45deg); flex-shrink: 0;
+}
+.hero-subtitle {
+  font-size: 10px; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--text-light);
+  line-height: 2; padding: 0 8px;
+  animation: fadeUp 1s 0.6s ease both;
+}
+
+/* ════════════════════════════
+   ORNAMENT BAND (полоса орнамента между секциями)
+════════════════════════════ */
+.ornament-band {
+  width: 100%; overflow: hidden;
+  padding: 6px 0;
+  background: var(--beige);
+  display: flex; align-items: center; justify-content: center;
+}
+.ornament-band svg { width: 100%; height: auto; display: block; }
+
+/* ════════════════════════════
+   SECTIONS
+════════════════════════════ */
+section {
+  padding: 60px 24px;
+  max-width: 600px; margin: 0 auto; text-align: center;
+}
+.section-label {
+  font-size: 9px; letter-spacing: 4px;
+  text-transform: uppercase; color: var(--gold);
+  margin-bottom: 14px; line-height: 1.8;
+}
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(24px, 6.5vw, 40px);
+  font-weight: 300; color: var(--text);
+  line-height: 1.2; margin-bottom: 14px;
+}
+.section-title em { font-style: italic; color: var(--gold-dark); }
+.section-text {
+  font-size: 15px; line-height: 1.85;
+  color: var(--text-light); margin-bottom: 10px;
+}
+.kazakh {
+  font-style: italic; color: var(--text-light);
+  font-size: 14px; line-height: 1.8;
+}
+
+/* ════════════════════════════
+   COUNTDOWN
+════════════════════════════ */
+.countdown-section {
+  background: linear-gradient(160deg, #3d2e1e 0%, #5a3e28 100%);
+  padding: 56px 20px; position: relative; overflow: hidden;
+}
+.countdown-section::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23c9a96e' stroke-width='0.4' opacity='0.12'%3E%3Cpolygon points='30,2 58,17 58,43 30,58 2,43 2,17'/%3E%3Cpolygon points='30,10 50,21 50,39 30,50 10,39 10,21'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 60px 60px;
+}
+.countdown-section .inner {
+  max-width: 600px; margin: 0 auto; text-align: center; position: relative; z-index: 1;
+}
+.countdown-section .section-label { color: var(--gold-light); opacity: 0.7; }
+.countdown-section .section-title { color: var(--cream); font-size: clamp(20px,5vw,30px); }
+.countdown-section .section-title em { color: var(--gold-light); }
+
+.countdown-wrap {
+  display: flex; justify-content: center;
+  gap: clamp(6px, 3vw, 28px);
+  margin-top: 28px; flex-wrap: nowrap;
+}
+.countdown-item {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 6px; min-width: 0;
+}
+.countdown-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(34px, 9vw, 60px);
+  font-weight: 300; color: var(--gold-light);
+  line-height: 1;
+  min-width: clamp(42px, 10vw, 62px);
+  text-align: center;
+}
+.countdown-label {
+  font-size: 7.5px; letter-spacing: 2px;
+  text-transform: uppercase; color: rgba(250,246,240,0.45);
+  white-space: nowrap;
+}
+.countdown-sep {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(26px, 6.5vw, 42px);
+  color: var(--gold); line-height: 1;
+  padding-top: 4px; opacity: 0.35; flex-shrink: 0;
+}
+
+/* ════════════════════════════
+   DETAILS
+════════════════════════════ */
+.details-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 12px; margin-top: 32px;
+}
+.detail-card {
+  background: white;
+  border: 1px solid var(--beige);
+  border-radius: 3px;
+  padding: 24px 14px; text-align: center;
+  position: relative; overflow: hidden;
+}
+.detail-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold-light), var(--gold), var(--gold-light));
+}
+.detail-card.full { grid-column: 1 / -1; }
+.detail-icon { font-size: 18px; margin-bottom: 9px; opacity: 0.7; }
+.detail-title {
+  font-size: 8px; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 9px;
+}
+.detail-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 19px; font-weight: 400;
+  color: var(--text); line-height: 1.3;
+}
+.detail-sub { font-size: 11px; color: var(--text-light); margin-top: 4px; font-style: italic; }
+
+/* карточка места: орнамент внутри */
+.venue-ornament {
+  margin: 20px auto 0;
+  opacity: 0.12;
+  display: block;
+}
+
+/* ── MAP BUTTON ── */
+.map-btn {
+  display: inline-flex; align-items: center; gap: 9px;
+  margin-top: 16px; padding: 16px 28px;
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold-dark);
+  text-decoration: none;
+  font-family: 'Raleway', sans-serif;
+  font-size: 10px; letter-spacing: 3px;
+  text-transform: uppercase; border-radius: 2px;
+  transition: background 0.25s, color 0.25s;
+  -webkit-tap-highlight-color: transparent;
+}
+.map-btn:active { background: var(--gold); color: white; }
+
+/* ════════════════════════════
+   RSVP
+════════════════════════════ */
+.rsvp-section {
+  background: var(--text); color: var(--cream);
+  padding: 60px 24px calc(60px + env(safe-area-inset-bottom,0px));
+  position: relative; overflow: hidden;
+}
+.rsvp-section::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23c9a96e' stroke-width='0.3' opacity='0.1'%3E%3Crect x='5' y='5' width='30' height='30' transform='rotate(45 20 20)'/%3E%3Crect x='10' y='10' width='20' height='20' transform='rotate(45 20 20)'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 40px 40px;
+}
+.rsvp-inner { max-width: 480px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
+.rsvp-section .section-label { color: var(--gold-light); opacity: 0.8; }
+.rsvp-section .section-title { color: var(--cream); }
+.rsvp-section .section-text  { color: rgba(250,246,240,0.55); }
+.rsvp-section .kazakh        { color: rgba(250,246,240,0.36); }
+
+.form-group { margin-top: 16px; text-align: left; }
+.form-group label {
+  display: block; font-size: 9px; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--gold-light);
+  opacity: 0.8; margin-bottom: 8px;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(201,169,110,0.25);
+  border-radius: 2px; padding: 15px;
+  color: var(--cream);
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px; font-weight: 300;
+  outline: none; transition: border-color 0.25s;
+  -webkit-appearance: none; appearance: none;
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder { color: rgba(250,246,240,0.25); }
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { border-color: var(--gold); }
+.form-group select option { background: var(--text); }
+
+.radio-group { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.radio-label {
+  display: flex; align-items: center; gap: 10px;
+  padding: 15px 12px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(201,169,110,0.18);
+  border-radius: 2px; cursor: pointer;
+  transition: all 0.22s;
+  font-size: 12px; color: rgba(250,246,240,0.55);
+  -webkit-tap-highlight-color: transparent;
+  line-height: 1.4;
+}
+.radio-label:has(input:checked) {
+  background: rgba(201,169,110,0.13);
+  border-color: var(--gold); color: var(--cream);
+}
+.radio-label input { display: none; }
+.radio-dot {
+  width: 12px; height: 12px; min-width: 12px;
+  border: 1px solid rgba(201,169,110,0.35);
+  transform: rotate(45deg); flex-shrink: 0;
+  transition: all 0.22s;
+}
+.radio-label:has(input:checked) .radio-dot {
+  background: var(--gold); border-color: var(--gold);
+}
+
+/* поле "своё количество" */
+.guests-custom {
+  margin-top: 10px;
+  display: none;
+}
+.guests-custom.visible { display: block; }
+
+.submit-btn {
+  width: 100%; margin-top: 22px; padding: 17px;
+  background: var(--gold); border: none; color: white;
+  font-family: 'Raleway', sans-serif;
+  font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
+  cursor: pointer; border-radius: 2px; transition: background 0.25s;
+  -webkit-tap-highlight-color: transparent;
+}
+.submit-btn:active { background: var(--gold-dark); }
+.submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.form-success { display: none; text-align: center; padding: 40px 0; }
+.form-success .checkmark { font-size: 36px; margin-bottom: 14px; }
+.form-success p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px; color: var(--cream); margin-bottom: 8px;
+}
+.form-success small { color: rgba(250,246,240,0.4); font-size: 12px; font-style: italic; }
+
+/* ════════════════════════════
+   FOOTER
+════════════════════════════ */
+footer {
+  text-align: center;
+  padding: 40px 24px calc(40px + env(safe-area-inset-bottom,0px));
+  background: var(--cream);
+}
+footer p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px; font-style: italic;
+  color: var(--text-light); margin-bottom: 8px;
+}
+footer small { font-size: 10px; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; }
+
+/* ════════════════════════════
+   ANIMATIONS
+════════════════════════════ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: none; }
+}
+.reveal {
+  opacity: 0; transform: translateY(22px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+}
+.reveal.visible { opacity: 1; transform: none; }
+
+/* ════════════════════════════
+   TABLET+
+════════════════════════════ */
+@media (min-width: 600px) {
+  section { padding: 80px 32px; }
+  .rsvp-section { padding: 80px 32px; }
+  .countdown-section { padding: 70px 32px; }
+  .details-grid { gap: 16px; }
+  .detail-card { padding: 30px 20px; }
+  .hero-medallion { width: min(300px, 60vw); }
+}
+</style>
+</head>
+<body>
+
+<!-- ════ HERO ════ -->
+<section class="hero">
+
+  <!-- Орнамент сверху -->
+  <div class="hero-ornament-top">
+    <svg width="min(320px, 88vw)" height="28" viewBox="0 0 320 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g stroke="#c9a96e" stroke-width="0.8" fill="none" opacity="0.5">
+        <polygon points="160,2 174,10 174,22 160,26 146,22 146,10"/>
+        <polygon points="160,7 168,12 168,20 160,24 152,20 152,12"/>
+        <line x1="174" y1="14" x2="210" y2="14"/>
+        <line x1="146" y1="14" x2="110" y2="14"/>
+        <polygon points="220,8 228,14 220,20 212,14"/>
+        <polygon points="100,8 108,14 100,20 92,14"/>
+        <line x1="228" y1="14" x2="260" y2="14"/>
+        <line x1="92" y1="14" x2="60" y2="14"/>
+        <rect x="255" y="10" width="8" height="8" transform="rotate(45 259 14)" stroke-width="0.6"/>
+        <rect x="57" y="10" width="8" height="8" transform="rotate(45 61 14)" stroke-width="0.6"/>
+        <line x1="263" y1="14" x2="310" y2="14"/>
+        <line x1="57" y1="14" x2="10" y2="14"/>
+      </g>
+    </svg>
+  </div>
+
+  <p class="hero-tag">Свадебное приглашение &nbsp;·&nbsp; Той шақыруы</p>
+
+  <!-- Центральный казахский медальон -->
+  <div class="hero-medallion">
+    <svg viewBox="0 0 260 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Внешний круг -->
+      <circle cx="130" cy="130" r="124" stroke="#c9a96e" stroke-width="0.8" opacity="0.3"/>
+      <circle cx="130" cy="130" r="118" stroke="#c9a96e" stroke-width="0.4" opacity="0.2"/>
+
+      <!-- 8-лучевая звезда (казахский мотив) -->
+      <g stroke="#c9a96e" fill="none" opacity="0.55">
+        <polygon points="130,20 140,110 130,130 120,110" stroke-width="0.8"/>
+        <polygon points="130,240 140,150 130,130 120,150" stroke-width="0.8"/>
+        <polygon points="20,130 110,120 130,130 110,140" stroke-width="0.8"/>
+        <polygon points="240,130 150,120 130,130 150,140" stroke-width="0.8"/>
+        <polygon points="48,48 112,116 130,130 116,112" stroke-width="0.8"/>
+        <polygon points="212,212 148,144 130,130 144,148" stroke-width="0.8"/>
+        <polygon points="212,48 148,116 130,130 144,112" stroke-width="0.8"/>
+        <polygon points="48,212 112,144 130,130 116,148" stroke-width="0.8"/>
+      </g>
+
+      <!-- Внутренний геометрический орнамент — ромбовая сетка -->
+      <g stroke="#c9a96e" fill="none" opacity="0.4" stroke-width="0.7">
+        <polygon points="130,60 170,100 170,160 130,200 90,160 90,100"/>
+        <polygon points="130,72 158,98 158,152 130,188 102,152 102,98"/>
+        <!-- тырнак (рог) мотив по углам -->
+        <path d="M130,72 Q145,86 158,98" stroke-width="1"/>
+        <path d="M130,72 Q115,86 102,98" stroke-width="1"/>
+        <path d="M130,188 Q145,174 158,152" stroke-width="1"/>
+        <path d="M130,188 Q115,174 102,152" stroke-width="1"/>
+      </g>
+
+      <!-- Центральный ромб -->
+      <g opacity="0.6">
+        <polygon points="130,108 152,130 130,152 108,130" stroke="#c9a96e" stroke-width="1.2" fill="none"/>
+        <polygon points="130,116 144,130 130,144 116,130" stroke="#c9a96e" stroke-width="0.7" fill="rgba(201,169,110,0.08)"/>
+        <circle cx="130" cy="130" r="4" fill="#c9a96e" opacity="0.5"/>
+      </g>
+
+      <!-- 8 малых ромбов по кругу -->
+      <g stroke="#c9a96e" fill="rgba(201,169,110,0.07)" stroke-width="0.7" opacity="0.5">
+        <polygon points="130,34 136,42 130,50 124,42"/>
+        <polygon points="130,210 136,218 130,226 124,218"/>
+        <polygon points="34,130 42,136 50,130 42,124"/>
+        <polygon points="210,130 218,136 226,130 218,124"/>
+        <polygon points="62,62 70,68 64,76 56,70"/>
+        <polygon points="198,62 206,68 200,76 192,70"/>
+        <polygon points="62,198 70,192 64,184 56,190"/>
+        <polygon points="198,198 206,192 200,184 192,190"/>
+      </g>
+
+      <!-- Внешний поясной орнамент -->
+      <g stroke="#c9a96e" stroke-width="0.6" fill="none" opacity="0.3">
+        <circle cx="130" cy="130" r="108"/>
+        <circle cx="130" cy="130" r="96"/>
+        <!-- штрихи между кругами -->
+        <line x1="130" y1="22" x2="130" y2="34"/>
+        <line x1="130" y1="226" x2="130" y2="238"/>
+        <line x1="22" y1="130" x2="34" y2="130"/>
+        <line x1="226" y1="130" x2="238" y2="130"/>
+        <line x1="54" y1="54" x2="62" y2="62"/>
+        <line x1="206" y1="54" x2="198" y2="62"/>
+        <line x1="54" y1="206" x2="62" y2="198"/>
+        <line x1="206" y1="206" x2="198" y2="198"/>
+      </g>
+    </svg>
+  </div>
+
+  <h1 class="hero-names">Темірлан<span class="amp">&amp;</span>Дамина</h1>
+  <p class="hero-date">24 апреля · 24 сәуір · 2026</p>
+
+  <div class="hero-divider">
+    <div class="hero-divider-line"></div>
+    <div class="hero-divider-diamond"></div>
+    <div class="hero-divider-line"></div>
+  </div>
+
+  <p class="hero-subtitle">Мы приглашаем вас разделить этот особенный день<br>Бұл ерекше күнге шақырамыз</p>
+
+  <!-- Орнамент снизу -->
+  <div class="hero-ornament-bottom">
+    <svg width="min(320px, 88vw)" height="28" viewBox="0 0 320 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g stroke="#c9a96e" stroke-width="0.8" fill="none" opacity="0.5">
+        <polygon points="160,26 174,18 174,6 160,2 146,6 146,18"/>
+        <line x1="174" y1="14" x2="228" y2="14"/>
+        <line x1="146" y1="14" x2="92" y2="14"/>
+        <polygon points="220,8 228,14 220,20 212,14"/>
+        <polygon points="100,8 108,14 100,20 92,14"/>
+        <line x1="228" y1="14" x2="310" y2="14"/>
+        <line x1="92" y1="14" x2="10" y2="14"/>
+      </g>
+    </svg>
+  </div>
+
+</section>
+
+
+<!-- ════ ORNAMENT BAND 1 ════ -->
+<div class="ornament-band reveal">
+  <svg viewBox="0 0 400 32" preserveAspectRatio="xMidYMid meet" height="32" xmlns="http://www.w3.org/2000/svg">
+    <g fill="none" stroke="#c9a96e" stroke-width="0.8" opacity="0.55">
+      <!-- повторяющийся мотив: ромб + линия -->
+      <g transform="translate(0,0)">
+        <polygon points="200,4 212,16 200,28 188,16" stroke-width="1"/>
+        <line x1="212" y1="16" x2="224" y2="16"/>
+        <line x1="188" y1="16" x2="176" y2="16"/>
+        <rect x="220" y="12" width="8" height="8" transform="rotate(45 224 16)" stroke-width="0.6"/>
+        <rect x="164" y="12" width="8" height="8" transform="rotate(45 168 16)" stroke-width="0.6"/>
+        <line x1="228" y1="16" x2="260" y2="16"/>
+        <line x1="164" y1="16" x2="140" y2="16"/>
+        <polygon points="270,10 280,16 270,22 260,16" stroke-width="0.6"/>
+        <polygon points="130,10 140,16 130,22 120,16" stroke-width="0.6"/>
+        <line x1="280" y1="16" x2="320" y2="16"/>
+        <line x1="120" y1="16" x2="80" y2="16"/>
+        <polygon points="330,10 340,16 330,22 320,16" stroke-width="0.6"/>
+        <polygon points="70,10 80,16 70,22 60,16" stroke-width="0.6"/>
+        <line x1="340" y1="16" x2="400" y2="16"/>
+        <line x1="60" y1="16" x2="0" y2="16"/>
+      </g>
+    </g>
+  </svg>
+</div>
+
+
+<!-- ════ INTRO ════ -->
+<section class="reveal">
+  <p class="section-label">С любовью · Сүйіспеншілікпен</p>
+  <h2 class="section-title">Дорогой гость, <em>вы приглашены</em></h2>
+  <p class="section-text">С великой радостью и переполненным любовью сердцем мы приглашаем вас на торжество нашего бракосочетания.</p>
+  <p class="kazakh">Зор қуаныш пен толы жүрекпен сіздерді біздің той салтанатымызға шақырамыз.</p>
+
+  <!-- малый декоративный орнамент под текстом -->
+  <svg viewBox="0 0 200 60" height="60" style="margin-top:32px;opacity:0.35" xmlns="http://www.w3.org/2000/svg">
+    <g fill="none" stroke="#c9a96e" stroke-width="0.9">
+      <polygon points="100,6 118,22 118,42 100,54 82,42 82,22"/>
+      <polygon points="100,14 112,24 112,40 100,50 88,40 88,24"/>
+      <circle cx="100" cy="30" r="5" stroke-width="0.7"/>
+      <circle cx="100" cy="30" r="2" fill="#c9a96e" opacity="0.4"/>
+      <line x1="118" y1="30" x2="148" y2="30" stroke-width="0.6"/>
+      <line x1="82" y1="30" x2="52" y2="30" stroke-width="0.6"/>
+      <polygon points="154,24 164,30 154,36 144,30" stroke-width="0.6"/>
+      <polygon points="46,24 56,30 46,36 36,30" stroke-width="0.6"/>
+      <line x1="164" y1="30" x2="200" y2="30" stroke-width="0.5" opacity="0.5"/>
+      <line x1="36" y1="30" x2="0" y2="30" stroke-width="0.5" opacity="0.5"/>
+    </g>
+  </svg>
+</section>
+
+
+<!-- ════ COUNTDOWN ════ -->
+<div class="countdown-section reveal">
+  <div class="inner">
+    <p class="section-label">До торжества осталось · Тойға дейін</p>
+    <h2 class="section-title">24 апреля <em>ждёт вас</em></h2>
+    <div class="countdown-wrap">
+      <div class="countdown-item"><span class="countdown-num" id="cd-days">00</span><span class="countdown-label">Дней · Күн</span></div>
+      <div class="countdown-sep">·</div>
+      <div class="countdown-item"><span class="countdown-num" id="cd-hours">00</span><span class="countdown-label">Часов · Сағат</span></div>
+      <div class="countdown-sep">·</div>
+      <div class="countdown-item"><span class="countdown-num" id="cd-mins">00</span><span class="countdown-label">Минут · Минут</span></div>
+      <div class="countdown-sep">·</div>
+      <div class="countdown-item"><span class="countdown-num" id="cd-secs">00</span><span class="countdown-label">Секунд · Секунд</span></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════ ORNAMENT BAND 2 ════ -->
+<div class="ornament-band reveal">
+  <svg viewBox="0 0 400 32" preserveAspectRatio="xMidYMid meet" height="32" xmlns="http://www.w3.org/2000/svg">
+    <g fill="none" stroke="#c9a96e" stroke-width="0.7" opacity="0.5">
+      <line x1="0" y1="16" x2="400" y2="16"/>
+      <!-- тырнак мотив (рог-завиток) -->
+      <path d="M60,16 Q70,6 80,16 Q90,26 100,16" stroke-width="1"/>
+      <path d="M160,16 Q170,6 180,16 Q190,26 200,16" stroke-width="1"/>
+      <path d="M260,16 Q270,6 280,16 Q290,26 300,16" stroke-width="1"/>
+      <circle cx="40" cy="16" r="3" stroke-width="0.8"/>
+      <circle cx="140" cy="16" r="3" stroke-width="0.8"/>
+      <circle cx="240" cy="16" r="3" stroke-width="0.8"/>
+      <circle cx="340" cy="16" r="3" stroke-width="0.8"/>
+    </g>
+  </svg>
+</div>
+
+
+<!-- ════ DETAILS ════ -->
+<section class="reveal">
+  <p class="section-label">Детали · Мәліметтер</p>
+  <h2 class="section-title">Всё, что <em>нужно знать</em></h2>
+  <div class="details-grid">
+
+    <div class="detail-card">
+      <div class="detail-icon">📅</div>
+      <p class="detail-title">Дата · Күн</p>
+      <p class="detail-value">24 апреля<br><span style="font-size:14px;color:var(--text-light)">24 сәуір</span></p>
+      <p class="detail-sub">2026</p>
+    </div>
+
+    <div class="detail-card">
+      <div class="detail-icon">🕔</div>
+      <p class="detail-title">Время · Уақыт</p>
+      <p class="detail-value">17:00</p>
+      <p class="detail-sub">Дресс-код: нарядно</p>
+    </div>
+
+    <div class="detail-card full">
+      <div class="detail-icon">📍</div>
+      <p class="detail-title">Место проведения · Өтетін жер</p>
+      <p class="detail-value">Название ресторана</p>
+      <p class="detail-sub">Адрес, Алматы</p>
+
+      <!-- орнаментальный разделитель вместо фото -->
+      <svg class="venue-ornament" viewBox="0 0 300 40" height="40" width="100%" xmlns="http://www.w3.org/2000/svg">
+        <g fill="none" stroke="#c9a96e" stroke-width="0.9">
+          <line x1="0" y1="20" x2="300" y2="20"/>
+          <polygon points="150,4 162,20 150,36 138,20" stroke-width="1.2"/>
+          <polygon points="150,10 158,20 150,30 142,20" fill="rgba(201,169,110,0.1)"/>
+          <polygon points="110,12 118,20 110,28 102,20" stroke-width="0.7"/>
+          <polygon points="190,12 198,20 190,28 182,20" stroke-width="0.7"/>
+          <polygon points="70,14 76,20 70,26 64,20" stroke-width="0.6"/>
+          <polygon points="230,14 236,20 230,26 224,20" stroke-width="0.6"/>
+        </g>
+      </svg>
+
+      <a class="map-btn" href="https://2gis.kz" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        Маршрут на 2ГИС · 2ГИС-те бағыт
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ════ RSVP ════ -->
+<div class="rsvp-section">
+  <div class="rsvp-inner">
+    <p class="section-label">Подтверждение · Растау</p>
+    <h2 class="section-title">Будете ли <em>вы с нами?</em></h2>
+    <p class="section-text">Просим подтвердить ваше присутствие до [укажите дату]</p>
+    <p class="kazakh">Қатысуыңызды [күнді көрсетіңіз] дейін растауыңызды сұраймыз</p>
+
+    <div id="rsvp-form" style="margin-top:30px">
+      <div class="form-group">
+        <label>Ваше имя · Есіміңіз</label>
+        <input type="text" id="f-name" placeholder="Имя и фамилия · Аты-жөніңіз" autocomplete="name">
+      </div>
+      <div class="form-group" style="margin-top:14px">
+        <label>Придёте? · Келесіз бе?</label>
+        <div class="radio-group">
+          <label class="radio-label"><input type="radio" name="attend" value="yes"><div class="radio-dot"></div>Приду · Келемін</label>
+          <label class="radio-label"><input type="radio" name="attend" value="no"><div class="radio-dot"></div>Не смогу · Келе алмаймын</label>
+        </div>
+      </div>
+      <div class="form-group" style="margin-top:14px">
+        <label>Количество гостей · Қонақтар саны</label>
+        <select id="f-guests" onchange="toggleCustomGuests(this)">
+          <option value="">Выберите · Таңдаңыз</option>
+          <option value="1">1 — только я · тек мен</option>
+          <option value="2">2 — мы вдвоём · екеуміз</option>
+          <option value="3">3 человека · адам</option>
+          <option value="4">4 человека · адам</option>
+          <option value="5">5 человека · адам</option>
+          <option value="other">Другое · Басқа саны</option>
+        </select>
+        <div class="guests-custom" id="guests-custom">
+          <input type="number" id="f-guests-custom" placeholder="Укажите количество · Санын жазыңыз" min="1" max="50" style="margin-top:8px">
+        </div>
+      </div>
+      <div class="form-group" style="margin-top:14px">
+        <label>Пожелание паре · Жұптың тілегі</label>
+        <textarea id="f-wish" rows="3" placeholder="Ваши добрые слова · Жақсы сөздеріңіз..."></textarea>
+      </div>
+      <button class="submit-btn" id="submit-btn" onclick="submitRSVP()">Отправить · Жіберу</button>
+    </div>
+
+    <div class="form-success" id="form-success">
+      <div class="checkmark">✦</div>
+      <p>Спасибо! · Рахмет!</p>
+      <small>Мы с нетерпением ждём встречи с вами · Сізбен кездесуді асыға күтеміз</small>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════ FOOTER ════ -->
+<footer>
+  <svg viewBox="0 0 200 32" height="28" style="display:block;margin:0 auto 16px;opacity:0.3" xmlns="http://www.w3.org/2000/svg">
+    <g fill="none" stroke="#c9a96e" stroke-width="0.8">
+      <polygon points="100,4 112,16 100,28 88,16" stroke-width="1"/>
+      <line x1="112" y1="16" x2="160" y2="16"/>
+      <line x1="88" y1="16" x2="40" y2="16"/>
+      <polygon points="166,10 174,16 166,22 158,16" stroke-width="0.7"/>
+      <polygon points="34,10 42,16 34,22 26,16" stroke-width="0.7"/>
+      <line x1="174" y1="16" x2="200" y2="16" opacity="0.5"/>
+      <line x1="26" y1="16" x2="0" y2="16" opacity="0.5"/>
+    </g>
+  </svg>
+  <p>Темірлан &amp; Дамина</p>
+  <small>24 · 04 · 2026</small>
+</footer>
+
+
+<script>
+// COUNTDOWN
+function updateCountdown() {
+  const diff = new Date(2026, 3, 24, 17, 0, 0) - new Date();
+  if (diff <= 0) { ['cd-days','cd-hours','cd-mins','cd-secs'].forEach(id => document.getElementById(id).textContent = '00'); return; }
+  document.getElementById('cd-days').textContent  = String(Math.floor(diff / 86400000)).padStart(2,'0');
+  document.getElementById('cd-hours').textContent = String(Math.floor((diff % 86400000) / 3600000)).padStart(2,'0');
+  document.getElementById('cd-mins').textContent  = String(Math.floor((diff % 3600000) / 60000)).padStart(2,'0');
+  document.getElementById('cd-secs').textContent  = String(Math.floor((diff % 60000) / 1000)).padStart(2,'0');
+}
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+// SCROLL REVEAL
+document.querySelectorAll('.reveal').forEach(r =>
+  new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.08 }).observe(r)
+);
+
+// показать/скрыть поле своего количества
+function toggleCustomGuests(sel) {
+  const custom = document.getElementById('guests-custom');
+  if (sel.value === 'other') custom.classList.add('visible');
+  else custom.classList.remove('visible');
+}
+
+// RSVP — замените на ваш Google Apps Script Web App URL
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzWW0sqN0Dw8w_GuE2ZAE3xnYHfGBS2gasWlVGl0Jr9lPfDr2XvRhiTyKWDxqQJEOly/exec';
+
+async function submitRSVP() {
+  const name   = document.getElementById('f-name').value.trim();
+  const attend = document.querySelector('input[name="attend"]:checked');
+  const guestsSel = document.getElementById('f-guests').value;
+  const guestsCustom = document.getElementById('f-guests-custom').value.trim();
+  const guests = guestsSel === 'other' ? (guestsCustom || '—') : (guestsSel || '—');
+  const wish   = document.getElementById('f-wish').value.trim();
+  const btn    = document.getElementById('submit-btn');
+  if (!name)   { alert('Пожалуйста, введите ваше имя · Есіміңізді енгізіңіз'); return; }
+  if (!attend) { alert('Пожалуйста, укажите придёте ли вы · Келетін-келмейтініңізді белгілеңіз'); return; }
+  btn.disabled = true;
+  btn.textContent = 'Отправляем... · Жіберілуде...';
+  try {
+    await fetch(SCRIPT_URL, {
+      method: 'POST',
+      body: new URLSearchParams({ name, attend: attend.value, guests, wish: wish||'—', date: new Date().toLocaleString('ru-KZ') }),
+      mode: 'no-cors'
+    });
+    document.getElementById('rsvp-form').style.display = 'none';
+    document.getElementById('form-success').style.display = 'block';
+  } catch {
+    btn.disabled = false;
+    btn.textContent = 'Отправить · Жіберу';
+    alert('Ошибка отправки. Попробуйте ещё раз.');
+  }
+}
+</script>
+</body>
+</html>
