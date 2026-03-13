@@ -175,21 +175,21 @@ section {
    COUNTDOWN
 ════════════════════════════ */
 .countdown-section {
-  background: linear-gradient(160deg, #2e2118 0%, #4a3020 100%);
+  background: linear-gradient(160deg, #d4aa6a 0%, #f0d080 100%);
   padding: 56px 20px; position: relative; overflow: hidden;
 }
 .countdown-section::before {
   content: '';
   position: absolute; inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23c9a96e' stroke-width='0.4' opacity='0.12'%3E%3Cpolygon points='30,2 58,17 58,43 30,58 2,43 2,17'/%3E%3Cpolygon points='30,10 50,21 50,39 30,50 10,39 10,21'/%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23a07840' stroke-width='0.8' opacity='0.22'%3E%3Cpolygon points='30,2 58,17 58,43 30,58 2,43 2,17'/%3E%3Cpolygon points='30,10 50,21 50,39 30,50 10,39 10,21'/%3E%3C/g%3E%3C/svg%3E");
   background-size: 60px 60px;
 }
 .countdown-section .inner {
   max-width: 600px; margin: 0 auto; text-align: center; position: relative; z-index: 1;
 }
-.countdown-section .section-label { color: var(--gold-light); opacity: 0.7; }
-.countdown-section .section-title { color: var(--cream); font-size: clamp(20px,5vw,30px); }
-.countdown-section .section-title em { color: var(--gold-light); }
+.countdown-section .section-label { color: #fff; opacity: 0.85; }
+.countdown-section .section-title { color: #fff; font-size: clamp(20px,5vw,30px); }
+.countdown-section .section-title em { color: rgba(255,255,255,0.8); }
 
 .countdown-wrap {
   display: flex; justify-content: center;
@@ -203,21 +203,21 @@ section {
 .countdown-num {
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(34px, 9vw, 60px);
-  font-weight: 600; color: var(--gold-light);
+  font-weight: 600; color: #fff;
   line-height: 1;
   min-width: clamp(42px, 10vw, 62px);
   text-align: center;
 }
 .countdown-label {
   font-size: 10px; letter-spacing: 2px;
-  text-transform: uppercase; color: rgba(250,246,240,0.55);
+  text-transform: uppercase; color: rgba(255,255,255,0.8);
   white-space: nowrap;
 }
 .countdown-sep {
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(26px, 6.5vw, 42px);
-  color: var(--gold); line-height: 1;
-  padding-top: 4px; opacity: 0.35; flex-shrink: 0;
+  color: rgba(255,255,255,0.6); line-height: 1;
+  padding-top: 4px; opacity: 0.6; flex-shrink: 0;
 }
 
 /* ════════════════════════════
@@ -280,43 +280,43 @@ section {
    RSVP
 ════════════════════════════ */
 .rsvp-section {
-  background: var(--text); color: var(--cream);
+  background: linear-gradient(160deg, #d4aa6a 0%, #f0d080 100%); color: #fff;
   padding: 60px 24px calc(60px + env(safe-area-inset-bottom,0px));
   position: relative; overflow: hidden;
 }
 .rsvp-section::before {
   content: '';
   position: absolute; inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23c9a96e' stroke-width='0.3' opacity='0.1'%3E%3Crect x='5' y='5' width='30' height='30' transform='rotate(45 20 20)'/%3E%3Crect x='10' y='10' width='20' height='20' transform='rotate(45 20 20)'/%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23a07840' stroke-width='0.7' opacity='0.25'%3E%3Crect x='5' y='5' width='30' height='30' transform='rotate(45 20 20)'/%3E%3Crect x='10' y='10' width='20' height='20' transform='rotate(45 20 20)'/%3E%3C/g%3E%3C/svg%3E");
   background-size: 40px 40px;
 }
 .rsvp-inner { max-width: 480px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
-.rsvp-section .section-label { color: var(--gold-light); opacity: 0.8; }
-.rsvp-section .section-title { color: var(--cream); }
-.rsvp-section .section-text  { color: rgba(250,246,240,0.55); }
-.rsvp-section .kazakh        { color: rgba(250,246,240,0.36); }
+.rsvp-section .section-label { color: #5a3a10; opacity: 1; }
+.rsvp-section .section-title { color: #3d2e1e; }
+.rsvp-section .section-text  { color: rgba(60,35,10,0.75); }
+.rsvp-section .kazakh        { color: rgba(255,255,255,0.5); }
 
 .form-group { margin-top: 16px; text-align: left; }
 .form-group label {
   display: block; font-size: 11px; letter-spacing: 3px;
-  text-transform: uppercase; color: var(--gold-light);
+  text-transform: uppercase; color: #5a3a10;
   opacity: 0.9; margin-bottom: 8px;
 }
 .form-group input,
 .form-group select,
 .form-group textarea {
   width: 100%;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(201,169,110,0.25);
+  background: rgba(255,255,255,0.55);
+  border: 1px solid rgba(255,255,255,0.8);
   border-radius: 2px; padding: 15px;
-  color: var(--cream);
+  color: #3d2e1e;
   font-family: 'Raleway', sans-serif;
   font-size: 16px; font-weight: 300;
   outline: none; transition: border-color 0.25s;
   -webkit-appearance: none; appearance: none;
 }
 .form-group input::placeholder,
-.form-group textarea::placeholder { color: rgba(250,246,240,0.25); }
+.form-group textarea::placeholder { color: rgba(100,60,10,0.45); }
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus { border-color: var(--gold); }
@@ -326,17 +326,17 @@ section {
 .radio-label {
   display: flex; align-items: center; gap: 10px;
   padding: 15px 12px;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(201,169,110,0.18);
+  background: rgba(255,255,255,0.5);
+  border: 1px solid rgba(255,255,255,0.8);
   border-radius: 2px; cursor: pointer;
   transition: all 0.22s;
-  font-size: 14px; color: rgba(250,246,240,0.65);
+  font-size: 14px; color: rgba(60,35,10,0.85);
   -webkit-tap-highlight-color: transparent;
   line-height: 1.4;
 }
 .radio-label:has(input:checked) {
-  background: rgba(201,169,110,0.13);
-  border-color: var(--gold); color: var(--cream);
+  background: rgba(255,255,255,0.85);
+  border-color: #a07840; color: #3d2e1e;
 }
 .radio-label input { display: none; }
 .radio-dot {
@@ -358,22 +358,22 @@ section {
 
 .submit-btn {
   width: 100%; margin-top: 22px; padding: 17px;
-  background: var(--gold); border: none; color: white;
+  background: #a07840; border: none; color: #fff;
   font-family: 'Raleway', sans-serif;
   font-size: 13px; letter-spacing: 4px; text-transform: uppercase;
   cursor: pointer; border-radius: 2px; transition: background 0.25s;
   -webkit-tap-highlight-color: transparent;
 }
-.submit-btn:active { background: var(--gold-dark); }
+.submit-btn:active { background: rgba(255,255,255,0.3); }
 .submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
 .form-success { display: none; text-align: center; padding: 40px 0; }
 .form-success .checkmark { font-size: 36px; margin-bottom: 14px; }
 .form-success p {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 24px; color: var(--cream); margin-bottom: 8px;
+  font-size: 24px; color: #fff; margin-bottom: 8px;
 }
-.form-success small { color: rgba(250,246,240,0.4); font-size: 12px; font-style: italic; }
+.form-success small { color: rgba(255,255,255,0.65); font-size: 12px; font-style: italic; }
 
 /* ════════════════════════════
    FOOTER
@@ -588,8 +588,8 @@ footer small { font-size: 10px; letter-spacing: 3px; color: var(--gold); text-tr
     <div class="detail-card full">
       <div class="detail-icon">📍</div>
       <p class="detail-title">Өтетін жер</p>
-      <p class="detail-value">Мекеме атауы</p>
-      <p class="detail-sub">Мекенжай, Алматы</p>
+      <p class="detail-value">Altyn Grand Hall мейрамханасы</p>
+      <p class="detail-sub">Күлжа тракты 134, Алматы</p>
 
       <!-- орнаментальный разделитель вместо фото -->
       <svg class="venue-ornament" viewBox="0 0 300 40" height="40" width="100%" xmlns="http://www.w3.org/2000/svg">
@@ -604,7 +604,7 @@ footer small { font-size: 10px; letter-spacing: 3px; color: var(--gold); text-tr
         </g>
       </svg>
 
-      <a class="map-btn" href="https://2gis.kz" target="_blank" rel="noopener">
+      <a class="map-btn" href="https://2gis.kz/almaty/firm/70000001063390164" target="_blank" rel="noopener">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
         2ГИС-те бағыт
       </a>
@@ -619,7 +619,6 @@ footer small { font-size: 10px; letter-spacing: 3px; color: var(--gold); text-tr
   <div class="rsvp-inner">
     <p class="section-label">Растау</p>
     <h2 class="section-title"><em>Бізбен бірге</em> боласыз ба?</h2>
-    <p class="section-text">Қатысуыңызды [күнді көрсетіңіз] дейін растауыңызды сұраймыз</p>
     
 
     <div id="rsvp-form" style="margin-top:30px">
@@ -661,6 +660,12 @@ footer small { font-size: 10px; letter-spacing: 3px; color: var(--gold); text-tr
       <p>Рахмет!</p>
       <small>Сізбен кездесуді асыға күтеміз</small>
     </div>
+
+    <div style="margin-top:36px;padding-top:28px;border-top:1px solid rgba(255,255,255,0.25);text-align:center;">
+      <p style="font-size:10px;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,0.75);margin-bottom:10px;font-weight:600;">Той иелері</p>
+      <p style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;color:#fff;font-style:italic;">Ерлан &amp; Гаухар</p>
+    </div>
+
   </div>
 </div>
 
